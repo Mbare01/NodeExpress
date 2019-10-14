@@ -3,11 +3,14 @@ var app = express();
 
 const path = require('path');
 app.get('/',function(req,res){
- res.sendFile(path.join(__dirname+'/index.html')); //__dirname : Ritorna la cartella del progetto
+ res.sendFile(path.join(__dirname+'/index.html')); 
+
+app.get('/about',function(req,res){
+ res.sendFile(path.join(__dirname+'/about.html')); 
 });
 
 app.get('/about',function(req,res){
- res.sendFile(path.join(__dirname+'/about.html')); //__dirname : Ritorna la cartella del progetto
+ res.sendFile(path.join(__dirname+'/sitemap.html')); 
 });
 
 
