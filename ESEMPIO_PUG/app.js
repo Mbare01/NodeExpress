@@ -1,14 +1,27 @@
 
-var express = require('express');
-var app = express();
 
-app.set('view engine', 'pug');   //Dico a express di usare pug come motore di template
+const express = require('express');
+const people = require('./views/people.json'); 
+const app = express();
 
-app.get('/', function (req, res) {
- //res.send('Ciao Mondo');
- res.render('index');  //Dico a express di processare e inviare la pagina index.pug
+app.set('view engine', 'pug');
+app.use(express.static(__dirname + '/public'));
+
+app.get('/', (req, res) => {
+  res.render('index', {
+    title: 'Homepage',
+    people: people.profiles
+  });
 });
+
 app.listen(3000, function () {
  console.log('Example app listening on port 3000!');
 });
 
+app.get('/profile', (req, res) => {
+  const person = people.profiles.find((p) => p.id === req.query.id);
+  res.render('profile', {
+    title: `About ${person.firstname} ${person.lastname}`,
+    person,
+  });
+});
