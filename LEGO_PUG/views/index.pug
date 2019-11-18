@@ -1,0 +1,19 @@
+doctype html
+html
+ head
+   title #{title}
+   link(rel='stylesheet', href='/css/style.css')
+   meta(name="viewport" content="width=device-width, initial-scale=1")
+ body
+   header.header
+         h1 #{title}
+   article.container
+    each l in lego
+       div.person
+         img.lego-image(src=`/images/${l.imgSrc}`)
+         h2.person-name
+           | #{l.Set_Name} #{l.lastname}
+         a(href=`/profile?id=${l.id}`)
+           | View Profile
+
+   
