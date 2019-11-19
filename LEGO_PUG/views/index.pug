@@ -10,10 +10,11 @@ html
    article.container
     each l in lego
        div.person
-         img.lego-image(src=`/images/${l.imgSrc}`)
          h2.person-name
-           | #{l.Set_Name} #{l.lastname}
-         a(href=`/profile?id=${l.id}`)
+           | #{l.Set_Name} 
+         img.lego-image(src=`/images/${l.imgSrc}`)
+         a(href=`/istruzioni?id=${l.id}`)
            | View Profile
+
 
    

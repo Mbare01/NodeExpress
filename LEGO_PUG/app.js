@@ -12,6 +12,14 @@ app.get('/', function (req, res) {
         lego: lego.lego
     });
 });
+
+app.get('/istruzioni', function (req, res) {
+    res.render('istruzioni', {
+        lego: lego.lego
+    });
+});
+
 app.listen(3000, function () {
  console.log('Example app listening on port 3000!');
 });
+
